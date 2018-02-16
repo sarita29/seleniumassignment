@@ -25,16 +25,19 @@ public class TestNGListener extends CommonFunction implements ITestListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		tearDown();
+		System.out.println("methodName:::" + methodName);
 	}
 
 	public void onTestFailure(ITestResult result) {
-		String methodName = result.getName().toString().trim();
+		String methodName =result.getName().toString().trim();
 		System.out.println("methodName:::" + methodName);
 		try {
 			takeScreenShot(methodName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		tearDown();
 	}
 
 	public void onTestSkipped(ITestResult result) {
@@ -50,7 +53,7 @@ public class TestNGListener extends CommonFunction implements ITestListener {
 	}
 
 	public void onFinish(ITestContext context) {
-
+		tearDown();
 	}
 
 }

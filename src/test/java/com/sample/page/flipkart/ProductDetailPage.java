@@ -1,4 +1,4 @@
-package com.sample.page;
+package com.sample.page.flipkart;
 
 import static org.testng.Assert.assertEquals;
 
@@ -15,7 +15,7 @@ public class ProductDetailPage extends CommonFunction{
 	public WebElement buyNowButton;
 
 	/* Verify product details page */
-	public void verifyProductDescriptionPage() {
+	 public void verifyProductDescriptionPage() {
 		switchToWindow();
 		assertEquals(buyNowButton.isDisplayed(), true);
 	}

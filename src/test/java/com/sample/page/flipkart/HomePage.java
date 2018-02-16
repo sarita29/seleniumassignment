@@ -1,4 +1,4 @@
-package com.sample.page;
+package com.sample.page.flipkart;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends com.sample.common.CommonFunction {
+import com.sample.common.CommonFunction;
+
+public class HomePage extends CommonFunction {
 
 	@FindBy(xpath = "//button[@class='_2AkmmA _29YdH8']") // button[text()='✕']
 	public WebElement closeLoginPopUp;
@@ -32,12 +34,10 @@ public class HomePage extends com.sample.common.CommonFunction {
 		return element;
 	}
 
-	public void openApp() {
-		driver.get("https://www.flipkart.com");
-		closeLoginPopUp.click();
-	}
-
 	public void verifyPage() {
+		if(closeLoginPopUp.isDisplayed()){
+			closeLoginPopUp.click();
+		}
 		assertTrue(driver.getTitle().contains("Online Shopping Site for Mobiles"), "user is not on homepage");
 		assertTrue(searchBox.isDisplayed(), "search box is not present");
 	}

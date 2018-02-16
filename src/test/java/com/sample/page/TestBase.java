@@ -3,13 +3,17 @@ package com.sample.page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestBase {
+public enum TestBase {
+	DRIVER;
+
 	public static WebDriver driver;
 
-	public static WebDriver getDriver() {
-		System.setProperty("webdriver.chrome.driver",
-				"./server/chromedriver.exe");
-		 driver = new ChromeDriver();
-		return driver;
+	public WebDriver getDriver(String driverName) {
+		if (driverName.equalsIgnoreCase("chromeDriver")) {
+			System.setProperty("webdriver.chrome.driver", "./server/chromedriver.exe");
+			driver = new ChromeDriver();
+			return driver;
+		}
+		return null;
 	}
 }

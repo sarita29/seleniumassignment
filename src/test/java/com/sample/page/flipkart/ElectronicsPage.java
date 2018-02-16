@@ -1,4 +1,4 @@
-package com.sample.page;
+package com.sample.page.flipkart;
 
 import static org.testng.Assert.assertTrue;
 
